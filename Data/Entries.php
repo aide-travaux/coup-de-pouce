@@ -2,13 +2,8 @@
 
 namespace AideTravaux\CoupDePouce\Data;
 
-use AideTravaux\Core\Entries as BaseEntries;
-use AideTravaux\CEE\Categorie\Data\Entries as CategorieEntries;
+use AideTravaux\Core\Entries as CoreEntries;
 
-abstract class Entries extends BaseEntries
+abstract class Entries extends CoreEntries
 {
-    /**
-     * @property array
-     */
-    const CATEGORIES_CEE = CategorieEntries::CATEGORIES_CEE;
 }
