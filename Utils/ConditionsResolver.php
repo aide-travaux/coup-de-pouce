@@ -24,7 +24,7 @@ abstract class ConditionsResolver
                 'value' => $model->getAgeLogement() > 2
             ], [
                 'condition' => CoupDePouce::CONDITIONS[1],
-                'value' => !empty( $base )
+                'value' => !empty( Repository::getOneOrNull($model->getCoupDePouceCodeTravaux()) )
             ], [
                 'condition' => CoupDePouce::CONDITIONS[2],
                 'value' => null
