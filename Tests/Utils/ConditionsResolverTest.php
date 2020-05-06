@@ -20,7 +20,7 @@ class ConditionsResolverTest extends TestCase
         $this->assertTrue(\is_array(ConditionsResolver::resolveConditions($stub)));
         $this->assertEquals(
             \count(ConditionsResolver::resolveConditions($stub)),
-            \count(CoupDePouce::CONDITIONS)
+            \count(CoupDePouce::CONDITIONS) + \count(ConditionsResolver::getConditions($stub))
         );
     }
 

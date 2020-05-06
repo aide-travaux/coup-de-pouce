@@ -18,7 +18,7 @@ abstract class ConditionsResolver
     {
         $conditions = self::getConditions($model);
 
-        return [
+        return \array_merge( $conditions, [
             [
                 'condition' => CoupDePouce::CONDITIONS[0],
                 'value' => $model->getAgeLogement() > 2
@@ -32,7 +32,7 @@ abstract class ConditionsResolver
                 'condition' => CoupDePouce::CONDITIONS[3],
                 'value' => null
             ]
-        ];
+        ]);
     }
 
     /**
@@ -55,7 +55,7 @@ abstract class ConditionsResolver
      * @param ConditionInterface
      * @return array
      */
-    private static function getConditions(ConditionInterface $model): array
+    public static function getConditions(ConditionInterface $model): array
     {
         $conditions = [];
 
