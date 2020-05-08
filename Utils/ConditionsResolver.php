@@ -57,98 +57,88 @@ abstract class ConditionsResolver
      */
     public static function getConditions(ConditionInterface $model): array
     {
-        $conditions = [];
-
         if ($base = Repository::getOneOrNull($model->getCoupDePouceCodeTravaux())) {
             switch ($base::CODE) {
                 case 'CDP-CH-01':
-                    $conditions[] = [
+                    return [[
                         'condition' => 'L\'équipement de chauffage actuel est une chaudière individuelle autre 
                                         qu\'à condensation',
                         'value' => null
-                    ];
-                    $conditions[] = [
+                    ], [
                         'condition' => 'L\'équipement de chauffage actuel est au charbon, au fioul ou au gaz',
                         'value' => null
-                    ];
-                    $conditions[] = [
+                    ], [
                         'condition' => 'Le logement est une maison individuelle',
                         'value' => $model->getTypeLogement() === Entries::TYPES_LOGEMENT['type_logement_1']
-                    ];
+                    ]];
                 case 'CDP-CH-02':
-                    $conditions[] = [
+                    return [[
                         'condition' => 'L\'équipement de chauffage actuel est une chaudière individuelle autre 
                                         qu\'à condensation',
                         'value' => null
-                    ];
-                    $conditions[] = [
+                    ], [
                         'condition' => 'L\'équipement de chauffage actuel est au charbon, au fioul ou au gaz',
                         'value' => null
-                    ];
+                    ]];
                 case 'CDP-CH-03':
-                    $conditions[] = [
+                    return [[
                         'condition' => 'L\'équipement de chauffage actuel est une chaudière individuelle autre 
                                         qu\'à condensation',
                         'value' => null
-                    ];
-                    $conditions[] = [
+                    ], [
                         'condition' => 'L\'équipement de chauffage actuel est au charbon, au fioul ou au gaz',
                         'value' => null
-                    ];
-                    $conditions[] = [
+                    ], [
                         'condition' => 'Le logement est situé en France métropolitaine',
                         'value' => null
-                    ];
+                    ]];
                 case 'CDP-CH-04':
-                    $conditions[] = [
+                    return [[
                         'condition' => 'L\'équipement de chauffage actuel est une chaudière individuelle autre 
                                         qu\'à condensation',
                         'value' => null
-                    ];
-                    $conditions[] = [
+                    ], [
                         'condition' => 'L\'équipement de chauffage actuel est au charbon, au fioul ou au gaz',
                         'value' => null
-                    ];
+                    ]];
                 case 'CDP-CH-05':
-                    $conditions[] = [
-                        'condition' => 'L\'équipement de chauffage actuel est une chaudière autre qu\'à condensation',
-                        'value' => null
-                    ];
-                    $conditions[] = [
-                        'condition' => 'L\'équipement de chauffage actuel est au charbon, au fioul ou au gaz',
-                        'value' => null
-                    ];
-                case 'CDP-CH-06':
-                    $conditions[] = [
+                    return [[
                         'condition' => 'L\'équipement de chauffage actuel est une chaudière individuelle autre 
                                         qu\'à condensation',
                         'value' => null
-                    ];
-                    $conditions[] = [
+                    ], [
                         'condition' => 'L\'équipement de chauffage actuel est au charbon, au fioul ou au gaz',
                         'value' => null
-                    ];
+                    ]];
+                case 'CDP-CH-06':
+                    return [[
+                        'condition' => 'L\'équipement de chauffage actuel est une chaudière individuelle autre 
+                                        qu\'à condensation',
+                        'value' => null
+                    ], [
+                        'condition' => 'L\'équipement de chauffage actuel est au charbon, au fioul ou au gaz',
+                        'value' => null
+                    ]];
                 case 'CDP-CH-07':
-                    $conditions[] = [
+                    return [[
                         'condition' => 'L\'équipement de chauffage actuel est un appareil indépendant de chauffage au charbon',
                         'value' => null
-                    ];
-                    $conditions[] = [
+                    ], [
                         'condition' => 'Le logement est une maison individuelle',
                         'value' => $model->getTypeLogement() === Entries::TYPES_LOGEMENT['type_logement_1']
-                    ];
+                    ]];
                 case 'CDP-CH-08':
-                    $conditions[] = [
+                    return [[
                         'condition' => 'L\'équipement de chauffage actuel est un convecteur électrique fixe',
                         'value' => null
-                    ];
+                    ]];
                 case 'CDP-CH-09':
-                    $conditions[] = [
+                    return [[
                         'condition' => 'Le logement est un bâtiment résidentiel collectif',
                         'value' => $model->getTypeLogement() === Entries::TYPES_LOGEMENT['type_logement_3']
-                    ];
+                    ]];
             }
         }
-        return $conditions;
+        return [];
     }
 }
